@@ -15,6 +15,9 @@ router.post('/', (req, res) => {
         name: req.body.name,
         content: req.body.content
     })
+
+    newQuestion.save().then(question => res.json(question))
+        .catch(errp => res.status(404).json(err))
 })
 
 module.exports = router
