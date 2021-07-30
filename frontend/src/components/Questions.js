@@ -3,7 +3,7 @@ import Question from './Question';
 import {connect} from 'react-redux'
 import { fetchQuestions } from '../actions/question_actions';
 
-const questions = [{content: "qweqwe"},{content:"awrserwer"}];
+// const questions = [{content: "qweqwe"},{content:"awrserwer"}];
 
 class Questions extends React.Component{
     
@@ -12,7 +12,7 @@ class Questions extends React.Component{
     }
 
     generateQuestionList(){
-        return questions.map((question, i) => 
+        return this.props.questions.map((question, i) => 
             <Question 
                 key={`question-${i}`}
                 question={question}
@@ -23,7 +23,7 @@ class Questions extends React.Component{
     render(){
         return (
             <>
-                {questions ? this.generateQuestionList() : "No Questions :(" }
+                {this.props.questions[0] ? this.generateQuestionList() : "No Questions :(" }
             </>
         )
     }

@@ -9,3 +9,12 @@ router.get('/', (req, res) => {
         .then(questions => res.json(questions))
         .catch(err => res.status(403).json(err))
 })
+
+router.post('/', (req, res) => {
+    const newQuestion = new Question({
+        name: req.body.name,
+        content: req.body.content
+    })
+})
+
+module.exports = router
